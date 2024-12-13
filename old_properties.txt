@@ -1,0 +1,116 @@
+org.gradle.daemon=true
+org.gradle.jvmargs=-Xms128m -Xmx1500m
+org.gradle.configureondemand=false
+
+
+
+
+
+
+** build.gradle: core 
+
+sourceCompatibility = 1.8
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+sourceSets.main.java.srcDirs = [ "src/" ]
+
+eclipse.project.name = appName + "-core"
+
+
+** superdev xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit trunk//EN" "https://www.gwtproject.org/doctype/2.10.0/gwt-module.dtd">
+<module rename-to="html">
+	<inherits name='com.badlogic.gdx.backends.gdx_backends_gwt' />
+
+    <inherits name='paradigmas.gauchovoador.GdxDefinition' />
+
+    <collapse-all-properties />
+
+	<add-linker name="xsiframe"/>
+	<set-configuration-property name="devModeRedirectEnabled" value="true"/>
+	<set-configuration-property name='xsiframe.failIfScriptTag' value='FALSE'/>
+</module>
+
+
+
+	<source path="paradigmas/gauchovoador" />
+	<public path="paradigmas/gauchovoador/Question.java" />
+	<source path="../../core/src/paradigmas/gauchovoador" />
+
+
+gwt.modules=paradigmas.gauchovoador.GdxDefinition
+
+
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.11.0//EN" "https://www.gwtproject.org/doctype/2.11.0/gwt-module.dtd">
+
+  src = files(file('src/'), '../core/src/paradigmas/gauchovoador') 
+
+
+
+  <inherits name='paradigmas.gauchovoador.GdxDefinition' />
+
+  	<inherits name='paradigmas.gauchovoador.Main' />
+
+
+    <!-- Caminho para os arquivos de código fonte -->
+    <source path="client"/>
+	<source path="html/src"/>
+
+
+
+  package paradigmas.gauchovoador;
+
+import com.google.gwt.user.client.rpc.IsSerializable; // Import necessário
+
+import java.util.List;
+
+public class Question implements IsSerializable {
+    private int id;
+    private String text;
+    private List<String> options;
+    private int answer;
+
+    // Construtor padrão sem argumentos (obrigatório para GWT).
+    public Question() {}
+
+    public Question(int id, String text, List<String> options, int answer) {
+        this.id = id;
+        this.text = text;
+        this.options = options;
+        this.answer = answer;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public List<String> getOptions() {
+        return options;
+    }
+
+    public int getAnswer() {
+        return answer;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                ", options=" + options +
+                ", answer=" + answer +
+                '}';
+    }
+}
+
+
+lambda 0 3 lambda 0 1 4
+
+1 lambda 2     lambda          
+
+<source path=""/>
